@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+{{ block.super }}
+
+    <div id="registered">
+
+<form class="form-horizontal" method="post">
+    {% csrf_token %}
+    <fieldset>
+        <legend>添加停车位</legend>
+        <div class="control-group">
+            <label class="control-label" for="focusedInput">账号</label>
+            <div class="controls">
+                <input class="input-xlarge focused" name="username" id="focusedInput" type="text">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="focusedInput">管理员手机号</label>
+            <div class="controls">
+                <input class="input-xlarge focused" name="mobile" id="focusedInput" type="text">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="focusedInput">密码</label>
+            <div class="controls">
+                <input class="input-xlarge focused" name="password" id="focusedInput" type="password" >
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="focusedInput">确定密码</label>
+            <div class="controls">
+                <input class="input-xlarge focused" name="password2" id="focusedInput" type="password" >
+            </div>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">添加</button>
+            <button type="reset" class="btn">重置</button>
+        </div>
+    </fieldset>
+</form>
+    </div>
+
+{% endblock %}

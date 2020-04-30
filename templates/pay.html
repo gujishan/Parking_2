@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>支付</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-image: linear-gradient(to top, rgba(255,0,0,0), #4169E1	);
+            height: 100vh;
+            display: flex;
+        }
+
+        #pay{
+            width: 390px;
+            border: 1px solid red;
+            border-radius: 20px;
+            margin: auto;
+        }
+        #pay h1{
+            text-align: center;
+        }
+        #pay p{
+            line-height: 30px;
+            margin-left: 20px;
+        }
+
+        button{
+            width: 200px;
+            height: 40px;
+            font-size: 15px;
+            margin-top: 10px ;
+            margin-left: 75px;
+            margin-bottom: 10px;
+            border-radius:20px;
+            list-style: none;
+            border: none;
+            outline: none;
+            background-color:#1E90FF;
+        }
+        a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="pay">
+        <h1>谢谢光临</h1>
+        <p>
+        车牌号：{{ c_no }}<br>
+        进入时间：{{ intime }}<br>
+        离开时间：{{outtime}}<br>
+        停车时间：{{ time_hour}}小时{{ time_min }}分钟<br>
+        需要支付：{{ Money }}元
+        <button><a href="{% url 'inout:pay' %}?money={{ Money }}" >支付</a></button>
+    </p>
+    </div>
+</body>
+</html>

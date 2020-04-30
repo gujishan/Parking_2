@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>登录页面</title>
+      {% load staticfiles %}
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <!-- Bootstrap -->
+        <link href="{% static '/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
+        <link href="{%  static '/bootstrap/css/bootstrap-responsive.min.css'%}" rel="stylesheet" media="screen">
+        <link href="{%  static '/vendors/easypiechart/jquery.easy-pie-chart.css'%}" rel="stylesheet" media="screen">
+        <link href="{% static '/assets/styles.css' %}" rel="stylesheet" media="screen">
+  </head>
+  <body id="login">
+    <div class="container">
+
+      <form class="form-signin" action="index.html" method="post">
+          {% csrf_token %}
+        <h2 class="form-signin-heading">管理员登录</h2>
+        <input type="text" class="input-block-level" name="username" placeholder="管理员账号">
+        <input type="password" class="input-block-level" name="password" placeholder="管理员密码">
+        <button class="btn btn-large btn-primary" type="submit">登录</button>
+      </form>
+
+    </div> <!-- /container -->
+        <script src="{% static '/vendors/jquery-1.9.1.min.js' %}"></script>
+        <script src="{% static '/bootstrap/js/bootstrap.min.js'%}"></script>
+        <script src="{% static '/vendors/easypiechart/jquery.easy-pie-chart.js' %}"></script>
+        <script src="{% static '/assets/scripts.js'%}"></script>
+  </body>
+</html>

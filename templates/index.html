@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主页</title>
+    {% load staticfiles %}
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #all{
+            width: 100%;
+            height: 100vh ;
+            position: relative;
+        }
+        #head{
+            position: absolute;
+            width: 100%;
+            height: 150px;
+            background-image: url({% static '/img/head.png' %});
+        }
+
+        h1{
+            text-align: center;
+            line-height: 150px;
+            letter-spacing: 20px;
+        }
+
+        #left{
+
+            border-right: 1px solid blue;
+            float: left;
+            width: 40%;
+            height: 100vh;
+        }
+
+        #right{
+            float: left;
+            width: 40%;
+            height: 100vh;
+        }
+
+        #car_w{
+            width: 19%;
+            height: 200px;
+            float: left;
+            margin-top: 150px;
+            border: 1px solid blue;
+            border-radius: 30px;
+        }
+
+        #saom{
+            width: 100px;
+            height: 100px;
+            float: left;
+            margin-top: 150px;
+            border: 1px solid blue;
+            border-radius: 100px;
+        }
+
+        .in{
+            background-color: red;
+            width: 300px;
+            height: 100px;
+            font-size: 20px;
+            border-radius:300px;
+            outline: none;
+
+            position: relative;
+            display:inline-block;
+            margin-top:200px;
+            margin-left: 20%;
+        }
+
+        .out{
+            background-color: blue;
+            width: 300px;
+            height: 100px;
+            font-size: 20px;
+            border-radius:300px;
+            outline: none;
+
+            position: relative;
+            display:inline-block;
+            margin-top:200px;
+            margin-left: 20%;
+        }
+
+        .root{
+            background-color: blue;
+            width: 100px;
+            height: 30px;
+            font-size: 20px;
+            border-radius:300px;
+            outline: none;
+            position:absolute;
+            right:0px;
+            bottom:0px;
+        }
+
+
+    </style>
+</head>
+<body style="background-color: #cccccc">
+<div id="all">
+    <div id="head">
+        <h1>欢迎使用停车场</h1>
+        <a href="{% url 'root:login' %}"><input class="root" type="button" value="管理员"></a>
+    </div>
+
+    {% if  cws %}
+    <div id="left">
+        <a href="{% url 'inout:carin' %}"><input class="in" type="button" value="进入停车场_摄像头"></a>
+        <a href="{% url 'inout:carin_tu' %}"><input class="in" type="button" value="进入停车场_图片"></a>
+    </div>
+    {% endif %}
+
+
+    <div id="right">
+        <a href="{% url 'inout:carout' %}"><input class="out" type="button" value="离开停车场_摄像头"></a>
+        <a href="{% url 'inout:carout_tu' %}"><input class="out" type="button" value="离开停车场_图片"></a>
+    </div>
+
+    <div id="car_w">
+
+        {% if cws %}
+            <h2 style="margin-left: 30px ; margin-top: 26px">还有{{cws.count}}个车位</h2>
+        {% elif not cws %}
+            <h2 style="margin-left: 30px ; margin-top: 26px">对不起，该停车场没有停车位</h2>
+        {% endif %}
+        <h2 style="margin-left: 30px ; margin-top: 26px">本停车场一小时花费为{{ price }}元</h2>
+    </div>
+
+    <div id="saom">
+        <h2>saoma</h2>
+    </div>
+</div>
+
+{% if info %}
+        <script>
+                window.alert('{{ info }}');
+        </script>
+{% endif %}
+</body>
+</html>

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+{{ block.super }}
+
+    <div id="update">
+        <div class="span12">
+                <form class="form-horizontal" method="post">
+                    {% csrf_token %}
+                    <fieldset>
+                        <legend>管理员管理</legend>
+                        <h3>更改管理员{{ login.username }}信息</h3>
+                        <div class="control-group">
+                            <label class="control-label" for="focusedInput">手机号</label>
+                            <div class="controls">
+                                <input class="input-xlarge focused" name="mobile" id="focusedInput" type="text" placeholder="输入11位数字">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="focusedInput">密码</label>
+                            <div class="controls">
+                                <input class="input-xlarge focused" name="password" id="focusedInput" type="password">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="focusedInput">确定密码</label>
+                            <div class="controls">
+                                <input class="input-xlarge focused" name="password2" id="focusedInput" type="password">
+                            </div>
+                        </div>
+
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">更改</button>
+                            <button type="reset" class="btn">重置</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+    </div>
+
+
+{% endblock %}
