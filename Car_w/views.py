@@ -73,9 +73,9 @@ def findcw(request):
             return render(request,'findcw.html',context=locals())
         except:
             info="没有这个车位"
-            return render(request, 'findcw.html')
+            return render(request, 'findcw.html',context=locals())
 
 def index(request):
     cws=Car_w.objects.filter(Car_w_status=True)
-    price=PRICE
+    price=PRICE[len(PRICE)-1]
     return render(request,'index.html',context=locals())

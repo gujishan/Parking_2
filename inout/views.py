@@ -80,6 +80,7 @@ def carin_tu(request):
         if not cw_no and c_no:
             info = '扫描错误！'
             cws = Car_w.objects.filter(Car_w_status=True)
+            price = PRICE[len(PRICE) - 1]
             return render(request, 'index.html', context=locals())
         else:
             p_cars = Parking.objects.filter(Cat_status=True)
@@ -87,6 +88,7 @@ def carin_tu(request):
                 if c_no == p_car.P_Car_no.Car_no:
                     info = '已经有这辆车'
                     cws = Car_w.objects.filter(Car_w_status=True)
+                    price=PRICE[len(PRICE)-1]
                     return render(request, 'index.html', context=locals())
             else:
                 cars = Car.objects.all()
@@ -105,6 +107,7 @@ def carin_tu(request):
                 carw_no.save()
                 info = "车辆" + c_no + "进入停车场"
                 cws = Car_w.objects.filter(Car_w_status=True)
+                price = PRICE[len(PRICE) - 1]
                 return render(request, 'index.html', context=locals())
 
 def carout(request):
@@ -133,8 +136,9 @@ def carout(request):
         time_hour = int(alltime / 60)
         time_min = alltime - time_hour * 60
         pri_time = int(alltime / 60 + 1)
-        Money = pri_time * PRICE
-        car_rm.P_Money = PRICE
+        price=PRICE[len(PRICE)-1]
+        Money = pri_time * price
+        car_rm.P_Money = price
         car_rm.P_Money = Money
         car_rm.All_time = alltime
         car_rm.Cat_status = False
@@ -178,11 +182,12 @@ def carout_tu(request):
             time_hour = int(alltime / 60)
             time_min = alltime - time_hour * 60
             pri_time = int(alltime / 60 + 1)
-            Money = pri_time * PRICE
+            price=PRICE[len(PRICE)-1]
+            Money = pri_time * price
             car_rm.P_Money = Money
             car_rm.All_time = alltime
             car_rm.Cat_status = False
-            car_rm.P_price=PRICE
+            car_rm.P_price=price
             car_rm.save()
             print(intime, outtime)
             hourtime = alltime / 60 + 1

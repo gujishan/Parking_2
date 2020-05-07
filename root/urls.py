@@ -13,4 +13,9 @@ urlpatterns = [
     url(r'incar/', views.incar, name='incar'),
     url(r'allcar/', views.allcar, name='allcar'),
     url(r'findc/', views.findc, name='findc'),
+    url(r'price/', views.price, name='price'),
+    url(r'income/', views.income, name='income'),
+    url(r'tu_car', views.tu_car, name='tu_car'),
+    url(r'tu_money/', views.tu_money, name='tu_money'),
+    url(r'findmoney', views.findmoney, name='findmoney'),
 ]

@@ -8,8 +8,10 @@
             {% csrf_token %}
             <fieldset>
                 <legend>单价设定</legend>
+                <legend>当前单价为{{ price }}元/小时</legend>
                 <div class="control-group">
                     <label class="control-label" for="focusedInput">单价</label>
+
                     <div class="controls">
                         <input class="input-xlarge focused" name="price" id="focusedInput" type="text" placeholder="输入数字">元
                     </div>
@@ -21,7 +23,7 @@
                 </div>
             </fieldset>
         </form>
-            </div>
+    </div>
 
         </div>
 

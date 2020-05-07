@@ -90,7 +90,7 @@
         }
 
         .root{
-            background-color: blue;
+            background-color: #0e90d2 ;
             width: 100px;
             height: 30px;
             font-size: 20px;
@@ -100,14 +100,35 @@
             right:0px;
             bottom:0px;
         }
-
-
     </style>
+    <script language="JavaScript">
+        var t=null;
+        t=setTimeout(time,1000);
+        function time() {
+            clearTimeout(t);
+            dt=new Date();
+              var y=dt.getFullYear();
+              var mm=dt.getMonth()+1;
+              var d=dt.getDate();
+              var weekday=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+              var day=dt.getDay();
+              var h=dt.getHours();
+              var m=dt.getMinutes();
+              var s=dt.getSeconds();
+              if(h<10) {h="0"+h;}
+              if(m<10) {m="0"+m;}
+              if(s<10) {s="0"+s;}
+              document.getElementById("timeshow").innerHTML="当前时间为："+y+"年"+mm+"月"+d+"日"+weekday[day]+""+h+":"+m+":"+s+"";
+              t=setTimeout(time,1000);
+        }
+    </script>
 </head>
 <body style="background-color: #cccccc">
 <div id="all">
+
     <div id="head">
         <h1>欢迎使用停车场</h1>
+        <div id="timeshow" class="timel" style="width: 500px;font-size: 20px" ></div>
         <a href="{% url 'root:login' %}"><input class="root" type="button" value="管理员"></a>
     </div>
 

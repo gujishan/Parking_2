@@ -23,11 +23,6 @@
                 </a>
                 <a class="brand" href="{% url 'root:root' %}">智能停车场管理后台</a>
                 <div class="nav-collapse collapse">
-                    <ul class="nav pull-right">
-                        <li class="dropdown">
-                            管理员:{{ username }}
-                        </li>
-                    </ul>
                     <ul class="nav">
 
                         <li class="dropdown">
@@ -55,6 +50,9 @@
                                     <a href="{% url 'root:allcar' %}">所有车辆</a>
                                 </li>
                                 <li>
+                                    <a href="{% url 'root:tu_car' %}">每天车辆统计</a>
+                                </li>
+                                <li>
                                     <a href="{% url 'root:findc' %}">查找车辆</a>
                                 </li>
                             </ul>
@@ -66,16 +64,16 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="#">单价设置</a>
+                                    <a href="{% url 'root:price' %}">单价设置</a>
                                 </li>
                                 <li>
-                                    <a href="#">每笔收入</a>
+                                    <a href="{% url 'root:income' %}">每笔收入</a>
                                 </li>
                                 <li>
-                                    <a href="#">每天收入</a>
+                                    <a href="{% url 'root:tu_money' %}">每天收入统计</a>
                                 </li>
                                 <li>
-                                    <a href="#">查找某天收入</a>
+                                    <a href="{% url 'root:findmoney' %}">查找某天收入</a>
                                 </li>
                             </ul>
                         </li>
@@ -108,6 +106,7 @@
     <script src="{% static '/bootstrap/js/bootstrap.min.js' %}"></script>
     <script src="{% static '/vendors/easypiechart/jquery.easy-pie-chart.js' %}"></script>
     <script src="{% static '/assets/scripts.js' %}"></script>
+    <script src="{% static '/echarts/echarts.min.js' %}"></script>
     <script>
         $(function () {
             // Easy pie charts

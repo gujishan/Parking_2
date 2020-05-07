@@ -20,6 +20,11 @@
         <input type="password" class="input-block-level" name="password" placeholder="管理员密码">
         <button class="btn btn-large btn-primary" type="submit">登录</button>
       </form>
+        {% if info %}
+        <script>
+            window.alert('{{ info }}');
+        </script>
+        {% endif %}
 
     </div> <!-- /container -->
         <script src="{% static '/vendors/jquery-1.9.1.min.js' %}"></script>

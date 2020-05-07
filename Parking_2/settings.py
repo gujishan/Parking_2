@@ -132,7 +132,7 @@ MEDIA_ROOT=os.path.join(BASE_DIR,'static/chepai/').replace("\\","/")
 ALIPAY_APPID='2016102100730788'
 
 # 单价
-PRICE=1.5
+PRICE=[1.5]
 
 APP_PRIVATE_KEY=open(os.path.join(BASE_DIR, 'InOut/key/app_private_key.pem'), 'r').read()
 
